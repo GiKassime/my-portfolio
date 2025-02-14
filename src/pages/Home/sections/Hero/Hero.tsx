@@ -13,8 +13,7 @@ const Hero = () => {
         display: "flex",
         alignItems: "center",
         [theme.breakpoints.up('xs')]: { // <= mobile
-            paddingTop: "100px",
-
+            paddingTop: "100px"
         },
         [theme.breakpoints.up('md')]: { // >=mobile
             paddingTop: "0",
@@ -33,14 +32,21 @@ const Hero = () => {
                 <Container maxWidth="lg">
                     <Grid container spacing={2}>
                         <Grid item xs={12} md={5}>
-                            <Box position="relative">
-                                <Box position="absolute" width={"150%"} top={-200} right={-100}>
-                                    <AnimatedBackground />
-                                </Box>
-                                <Box position="relative" textAlign="center">
-                                    <StyledImg src={Avatar} />
-                                </Box>
-                            </Box>
+                        <Box position="relative" textAlign="center">
+    <Box
+        position="absolute"
+        top="50%"
+        left="50%"
+        sx={{
+            transform: "translate(-50%, -50%)",
+            width: "100%", // Ajuste conforme necessário
+        }}
+    >
+        <Box> <AnimatedBackground /></Box>
+        <StyledImg src={Avatar} />
+    </Box>
+</Box>
+
                         </Grid>
                         <Grid item xs={12} md={7}>
                             <Typography color="primary.contrastText" variant="h1" textAlign="center" pb={2}>Giovana Kassime</Typography>
