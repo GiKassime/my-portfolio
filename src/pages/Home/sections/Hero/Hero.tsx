@@ -1,126 +1,107 @@
-import { Box, Container, Grid, Typography, styled } from "@mui/material"
-import Avatar from "../../../../assets/images/avatar.jpg"
+import { Box, Container, Grid, Slide, Typography, Zoom, styled } from "@mui/material";
+import Avatar from "../../../../assets/images/avatar.jpg";
 import DownloadIcon from '@mui/icons-material/Download';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import StyledButton from "../../../../components/StyledButton/StyledButton";
-import { AnimatedBackground } from "../../../../components/AnimatedBackground/AnimatedBackground";
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
-
+import FallingLetters from "../../../../components/AnimatedBackground/FallingLetters";
 
 const Hero = () => {
-
     const StyledHero = styled("div")(({ theme }) => ({
         position: "relative",
         height: "100vh",
         display: "flex",
         alignItems: "center",
+        justifyContent: "center",
+        overflow: "hidden", // Para evitar barras de rolagem
         [theme.breakpoints.up('xs')]: { // <= mobile
-            paddingTop: "30vh"
+            paddingTop: "10%",
         },
         [theme.breakpoints.up('sm')]: { // <= mobile
-            paddingTop: "60vh"
+            paddingTop: "10%",
 
         },
         [theme.breakpoints.up('md')]: { // >=mobile
-            paddingTop: "20vh",
-        }
-    }))
+            paddingTop: "10vh",
+        },
+    }));
 
     const StyledImg = styled("img")(({ theme }) => ({
         width: "75%",
         borderRadius: "50%",
         border: `1px solid ${theme.palette.primary.contrastText}`,
         zIndex: 1,
-        [theme.breakpoints.up('sm')]: { // <= mobile
-           width: "50%",
-            
+        [theme.breakpoints.up('xs')]: { // <= mobile (0px ou maior)
+            width: "50%",
         },
-        [theme.breakpoints.up('md')]: { // <= mobile
-            width: "80%",
-             
-         },
-    }))
+        [theme.breakpoints.up('sm')]: { // <= tablet (600px ou maior)
+            width: "70%",
+        },
+        [theme.breakpoints.up('md')]: { // <= desktop (900px ou maior)
+            width: "70%",
+        },
+    }));
 
     return (
-        <>
-            <StyledHero>
+        <StyledHero>
+            {/* Fundo animado com FallingLetters */}
             <Box
                 position="absolute"
                 top="0"
                 left="0"
-                margin={0}
-                padding={0}
-                width="100%"
-                height="100%"
-                sx={{
-                    zIndex: 0, // Mantém a animação atrás
-                    pointerEvents: "none", 
-                    width: { xs: "100%", md: "120%" }
-                }}
+                width="100vw"
+                height="100vh"
+                zIndex={0} // Garante que fique atrás dos outros elementos
             >
-                <DotLottieReact
-                    src="https://lottie.host/54dc271a-bb21-4ee8-a02d-b2e81f40ff14/X1NF0yhABC.lottie"
-                    loop
-                    autoplay
-                    style={{
-                        width: "100vw",
-                        height: "110vh",
-                        objectFit: "cover"
-                    }}
-                />
+                <FallingLetters />
             </Box>
-                <Container maxWidth="lg">
-                    <Grid container spacing={2}>
-                        <Grid item xs={12} md={5}>
-                        <Box position="relative" display="flex" justifyContent="center">
-                            {/* Animação atrás da foto */}
-                            <Box
-                                position="absolute"
-                                top="50%"
-                                left="50%"
-                                sx={{
-                                    transform: "translate(-50%, -50%)",
-                                    width: { xs: "100%", md: "120%" }, // 100% no mobile, 120% em telas grandes
-                                    zIndex: 0, // Mantém a animação atrás
-                                }}
-                            >
-                                <AnimatedBackground />
-                            </Box>
 
-                            {/* Foto */}
+            <Container maxWidth="lg">
+                <Grid container spacing={2} direction={{ sm: "row", md: "row", xs: "column" }} alignItems="center" >
+                    {/* Imagem */}
+                    <Grid item xs={12} md={5} sm={6}>
+                        <Box display="flex" justifyContent="center">
                             <StyledImg src={Avatar} />
                         </Box>
-   
+                    </Grid>
 
-                        </Grid>
-                        <Grid item xs={12} md={7}>
-                            <Typography color="primary.contrastText" variant="h1" textAlign="center" pb={2}>Giovana Kassime</Typography>
-                            <Typography color="primary.contrastText" variant="h2" textAlign="center" >Estudante Técnica ADS</Typography>
-                            <Grid container display="flex" justifyContent="center" spacing={3} pt={3}>
-                                <Grid item xs={12} md={4} display="flex" justifyContent="center">
-                                    <StyledButton>
-                                        <DownloadIcon />
-                                        <Typography>
-                                            Download CV
-                                        </Typography>
-                                    </StyledButton>
-                                </Grid>
+                    {/* Textos e Botões */}
+                    <Grid item xs={12} md={7} sm={6} zIndex={1}>
+                        <Zoom in={true}><Typography color="primary.contrastText" variant="h2" textAlign="center" pb={2}>
+                            Giovana Kassime
+                        </Typography></Zoom>
+                        <Zoom in={true} style={{ transitionDelay: '500ms' }} >
+                            <Typography color="primary.contrastText" variant="h4" textAlign="center">
+                                Estudante Técnica ADS
+                            </Typography></Zoom>
+
+                        <Grid container display="flex" justifyContent="center" spacing={3} pt={3}>
+                                <Slide direction="up" in={true}>
                                 <Grid item xs={12} md={4} display="flex" justifyContent="center">
                                     <StyledButton>
                                         <MailOutlineIcon />
-                                        <Typography>
-                                            Contact me
-                                        </Typography>
+                                        <Typography>Contact me</Typography>
                                     </StyledButton>
                                 </Grid>
-                            </Grid>
+                                </Slide>
+
+                                <Slide direction="up" in={true} >
+
+                                <Grid item xs={12} md={4} display="flex" justifyContent="center">
+                                    <StyledButton>
+                                        <DownloadIcon />
+                                        <Typography>Download CV</Typography>
+                                    </StyledButton>
+                                </Grid>
+                                </Slide>
+
+
                         </Grid>
                     </Grid>
-                </Container>
-            </StyledHero>
-        </>
-    )
-}
+                </Grid>
+            </Container>
+        </StyledHero>
+    );
+};
 
-export default Hero
+export default Hero;
