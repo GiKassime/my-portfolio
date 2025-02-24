@@ -15,7 +15,7 @@ const NavBar = () => {
             <Toolbar sx={{ display: "flex", justifyContent: "space-evenly" }}>
                 <MenuItem onClick={() => handleScroll("about")}>About</MenuItem>
                 <MenuItem onClick={() => handleScroll("projects")}>Projects</MenuItem>
-                <MenuItem onClick={() => handleScroll("")}>Skills</MenuItem>
+                <MenuItem onClick={() => handleScroll("skills")}>Skills</MenuItem>
                 {}
             </Toolbar>
         </AppBar>

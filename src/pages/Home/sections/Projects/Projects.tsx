@@ -55,7 +55,7 @@ const projects = [
 ];
 
 const StyledProjects = styled("div")(({ }) => ({
-    background: "linear-gradient(357deg, rgba(100,13,95,1) 0%, rgba(24,24,24,1) 95%)",
+    background: "linear-gradient(0deg, rgb(0, 0, 0) 15%, rgb(95, 18, 90) 90%)",
     minHeight: "100vh",
     display: "flex",
     alignItems: "center",

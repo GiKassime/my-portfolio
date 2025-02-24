@@ -1,6 +1,7 @@
 import React from "react";
 import NavBar from "../../components/NavBar/NavBar";
 import Hero from "./sections/Hero/Hero";
+import Skills from "./sections/Skills/Skills";
 import Projects from "./sections/Projects/Projects";
 
 const Home = () => {
@@ -9,6 +10,9 @@ const Home = () => {
             <NavBar />
             <div id="hero">
                 <Hero />
+            </div>
+            <div id="skills">
+                <Skills/>
             </div>
             <div id="projects">
                 <Projects />
