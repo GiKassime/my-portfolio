@@ -18,17 +18,21 @@ const StyledSkills = styled("div")(() => ({
 
 const SkillIcon = ({ src, alt }) => (
     <motion.div
-        animate={{
-            y: [0, -15, 0],
+        whileHover={{
+            rotateY: 360, // Gira 360 graus no eixo Y
+            scale: 1.3,   // Aumenta ligeiramente o tamanho
         }}
         transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: "easeInOut",
+            type: "spring", // Tipo de transição suave
+            stiffness: 100, // Rigidez da animação
+            damping: 10,    // Amortecimento da animação
+        }}
+        style={{
+            perspective: "1000px", // Adiciona perspectiva para o efeito 3D
         }}
     >
-        <Box sx={{ width: { xs: "130px", md: "150px", lg: "140px" }, height: "auto", display: "flex", justifyContent: "center", pt:"2vh" }}>
-            <img src={src} alt={alt} style={{ width: "100%", height: "auto" }} />
+        <Box sx={{ width: { xs: "130px", md: "150px", lg: "140px" }, height: "auto", display: "flex", justifyContent: "center", pt: "2vh" }}>
+            <img src={src} alt={alt} style={{ width: "100%", height: "auto", transformStyle: "preserve-3d" }} />
         </Box>
     </motion.div>
 );
@@ -52,7 +56,6 @@ const Skills = () => {
                     textAlign="center"
                     mb={3}
                     sx={{ mt: { xs: 5, sm: 10, md: 2 } }}
-
                 >
                     My Skills
                 </Typography>
@@ -62,7 +65,7 @@ const Skills = () => {
                         width: { xs: "70vw", sm: "80vw", md: "70vw", lg: "60vw" },
                         margin: "0 auto"
                     }}
-                    justifyContent="ceNter"
+                    justifyContent="center"
                     alignItems="center">
                     {skills.map((skill, index) => (
                         <Grid key={index} item xs={6} sm={4} md={4} lg={3} display="flex" justifyContent="center">
