@@ -27,10 +27,16 @@ const projects = [
         description: "Este site foi criado com o intuito de apresentar a nova versão responsiva do salão de beleza A Diva do Picote. O projeto inclui uma splash screen, página de login, serviços disponíveis, agendamentos, galeria de trabalhos, equipe de profissionais e histórico de atendimentos. O acesso às páginas é feito por um menu hambúrguer, garantindo uma experiência otimizada para dispositivos móveis.",
     },
     {
-        name: "Interface Administrativa com Bootstrap",
+        name: "Interface Administrativa",
         image: "/src/assets/gifs/telaAdministrativa.gif",
         deployLink: "https://tela-administrativa.vercel.app/relatorios.html",
         description: "O projeto foi desenvolvido para uma confeitaria, utilizando o Bootstrap na criação de uma interface administrativa. A primeira parte do projeto contém tudo no arquivo `index`, enquanto a segunda separa os estilos e scripts em arquivos externos para reaproveitamento. A navegação e o menu lateral são reutilizados através de um script em `app.js`, facilitando a manutenção e evitando a repetição de código.",
+    },
+    {
+        name: "Currículo Jhonny Five",
+        image: "/src/assets/gifs/JohnnyFive.gif",
+        deployLink: "https://curriculo-jhonny-7diz.vercel.app/",
+        description: "O projeto consiste em um currículo online criado para o robô Johnny Five, utilizando HTML e CSS. A aplicação é organizada em duas páginas: a página principal (`index.html`), que apresenta as informações gerais do currículo, e uma página complementar (`experiencia.html`), que detalha a experiência profissional. O currículo é estruturado com seções como Perfil, Competências, Formação Acadêmica e Contato, utilizando elementos como listas, links e imagens. A segunda parte do projeto foca no aprimoramento visual com o uso de CSS, incluindo a centralização do conteúdo, escolha de cores e fontes, e a aplicação de estilos para as seções. O código HTML foi validado no W3C Validator para garantir a conformidade com os padrões web.",
     },
 ];
 
