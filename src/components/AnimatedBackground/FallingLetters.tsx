@@ -32,7 +32,7 @@ const FallingLetters = () => {
       // Reinicia as colunas, baseadas no novo fontSize
       dropsRef.current = new Array(Math.floor(w / fontSizeRef.current)).fill(1);
 
-      // Preenche o canvas com um fundo escuro inicial
+      // Preenche o canvsas com um fundo escuro inicial
       ctx.fillStyle = "#181818"; // Cor de fundo escura
       ctx.fillRect(0, 0, w, h);
     };
